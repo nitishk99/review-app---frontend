@@ -1,24 +1,54 @@
-import logo from './logo.svg';
+
+import { Route,  Routes, Switch } from 'react-router-dom';
 import './App.css';
+import AddReviews from './component/AddReviews';
+import Navbar from './component/Navbar';
+import Home from './component/Home';
+
+import Review from './component/Review';
+import ReviewLists from './component/ReviewLists';
+import { Link } from 'react-router-dom';
+import { Container,Row,Col } from 'reactstrap';
+
 
 function App() {
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+ 
+     <div className=" text-center">
+     
+
+     <Container>
+       <Row>
+         <Col sm={2}>
+          <Navbar/>
+         </Col>
+         <Col sm={10}>
+          
+           <Routes>
+           <Route path='/' element={<Home/>} exact></Route>
+           <Route path='addreview' element={<AddReviews/>} exact></Route>
+           <Route path='viewreviews' element={<ReviewLists/>} exact></Route>
+
+           </Routes>
+          
+         </Col>
+       </Row>
+     </Container>
+   </div>
+
+
+
+
+
+
+
+
+
+
+
+
   );
 }
 
